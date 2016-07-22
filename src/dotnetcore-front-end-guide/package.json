@@ -7,12 +7,12 @@
     "start": "npm run build",
     "develop": "npm run watch",
     "build": "npm-run-all --parallel build:*",
-    "build:js": "browserify Views/Index.js -o wwwroot/Index.js -p [minifyify --no-map] -x jquery -t [ babelify --presets [es2015] ]",
+    "build:js": "browserify Scripts/Index.js -o wwwroot/Index.js -p [minifyify --no-map] -x jquery -t [ babelify --presets [es2015] ]",
     "build:jsvendor": "browserify -r jquery --noparse -o wwwroot/Vendor.js",
-    "build:css": "postcss -u postcss-import -u postcss-simple-vars -u postcss-nested -u cssnano -o wwwroot/Main.css Views/Main.css",
+    "build:css": "postcss -u postcss-import -u postcss-simple-vars -u postcss-nested -u cssnano -o wwwroot/Main.css Styles/Main.css",
     "build:assets": "gulp copy:assets",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:js": "watchify Views/Index.js -o wwwroot/Index.js -x jquery -t [ babelify --presets [es2015] ] -v",
+    "watch:js": "watchify Scripts/Index.js -o wwwroot/Index.js -x jquery -t [ babelify --presets [es2015] ] -v",
     "prewatch:css": "npm run build:css --silent",
     "watch:css": "chokidar 'Views/**/*.css' 'Views/Main.css' -c 'npm run build:css'",
     "watch:reload": "browser-sync start --files 'wwwroot/*' --logLevel 'silent' --no-ui --no-open --no-online --no-notify",
@@ -56,7 +56,7 @@
     "npm": "3.0.0"
   },
   "browser": {
-    "jquery": "./Views/Shared/Scripts/Vendor/Jquery.custom"
+    "jquery": "./Scripts/Vendor/Jquery.custom"
   },
   "xo": {
     "env": [
