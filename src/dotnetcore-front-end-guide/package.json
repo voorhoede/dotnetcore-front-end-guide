@@ -14,7 +14,7 @@
     "watch": "npm-run-all --parallel watch:*",
     "watch:js": "watchify Scripts/Index.js -o wwwroot/Index.js -x jquery -t [ babelify --presets [es2015] ] -v",
     "prewatch:css": "npm run build:css --silent",
-    "watch:css": "chokidar 'Views/**/*.css' 'Views/Main.css' -c 'npm run build:css'",
+    "watch:css": "chokidar 'Views/**/*.css' 'Styles/Main.css' -c 'npm run build:css'",
     "watch:reload": "browser-sync start --files 'wwwroot/*' --logLevel 'silent' --no-ui --no-open --no-online --no-notify",
     "test": "karma start Scripts/test/config.js",
     "test:watch": "karma start Scripts/test/config.js --no-single-run --auto-watch --browsers PhantomJS"
