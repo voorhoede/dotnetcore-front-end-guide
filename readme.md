@@ -1,5 +1,6 @@
 # .NET Core front-end development guide
 
+[![Build status](https://ci.appveyor.com/api/projects/status/pxc55w86ova28q48/branch/master?svg=true)](https://ci.appveyor.com/project/antao/dotnetcore-front-end-guide/branch/master)
 
 ## Getting started
 
