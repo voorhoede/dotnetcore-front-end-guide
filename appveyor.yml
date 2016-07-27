@@ -20,14 +20,10 @@ install:
 ##   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
 
 build_script:
-  # dotnet info
   - ps: dotnet --info
-  # Run dotnet new 
-  - ps: mkdir "test\test-dotnet-new" -Force | Push-Location
-  - ps: dotnet new --lang fsharp
   - ps: dotnet restore
   - ps: dotnet --verbose build
-  - ps: dotnet --verbose run a b
+  - ps: dotnet --verbose run
   - ps: Pop-Location
 
 
