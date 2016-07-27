@@ -21,11 +21,8 @@ install:
 
 build_script:
   - ps: dotnet --info
-  - ps: dotnet restore
-  - ps: dotnet --verbose build
-  - ps: dotnet --verbose run
-  - ps: Pop-Location
-
+  - ps: dotnet restore         
+  - ps: dotnet --verbose build "C:\projects\dotnetcore-front-end-guide\src\dotnetcore-front-end-guide"
 
 test: off 
 version: 0.0.1.{build}
