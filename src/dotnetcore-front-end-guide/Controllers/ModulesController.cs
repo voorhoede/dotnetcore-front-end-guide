@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using dotnetcore_front_end_guide.Models;
+using dotnetcore_front_end_guide.ViewModels.Modules;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -47,8 +47,7 @@ namespace dotnetcore_front_end_guide.Controllers
             }
         }
 
-        // TODO : Create a singleton-ish IOService.cs
-        private IEnumerable<Module> GetModules()
+        private IEnumerable<ModuleViewModel> GetModules()
         {
             foreach (string moduleGroupDirectoryPath in Directory.GetDirectories(_modulesRootPath))
             {
@@ -68,15 +67,15 @@ namespace dotnetcore_front_end_guide.Controllers
                     }
 
                     string[] readmeFiles = Directory.GetFiles(moduleDirectoryPath, "README.md", SearchOption.TopDirectoryOnly);
-                    yield return new Module()
+                    yield return new ModuleViewModel()
                     {
                         group = moduleGroup,
                         name = moduleName,
                         info = readmeFiles.Any()
-                            ? new ModuleInfo { readme = _urlHelper.Action(nameof(Info), new { group = moduleGroup, name = moduleName }) }
+                            ? new ModuleInfoViewModel { readme = _urlHelper.Action("Info", new { group = moduleGroup, name = moduleName }) }
                             : null,
 
-                        url = _urlHelper.Action(nameof(Module), new { group = moduleGroup, name = moduleName })
+                        url = _urlHelper.Action("Module", new { group = moduleGroup, name = moduleName })
                     };
                 }
             }
