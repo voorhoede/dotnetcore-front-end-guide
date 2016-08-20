@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 using System.IO;
 using System.Linq;
 using dotnetcore_front_end_guide.ViewModels.Modules;
@@ -53,17 +54,17 @@ namespace dotnetcore_front_end_guide.Controllers
             {
                 var moduleGroupDirectoryPathParts = moduleGroupDirectoryPath.Split(Path.DirectorySeparatorChar);
                 var moduleGroup = moduleGroupDirectoryPathParts.Last();
-
+                
                 foreach (var moduleDirectoryPath in Directory.GetDirectories(moduleGroupDirectoryPath))
                 {
                     var moduleDirectoryPathParts = moduleDirectoryPath.Split(Path.DirectorySeparatorChar);
                     var moduleName = moduleDirectoryPathParts.Last();
-
+                   
                     string[] demofiles = Directory.GetFiles(moduleDirectoryPath, $"{moduleName}.demo.cshtml", SearchOption.TopDirectoryOnly);
 
                     if (!demofiles.Any())
                     {
-                        yield break;
+                        continue;
                     }
 
                     string[] readmeFiles = Directory.GetFiles(moduleDirectoryPath, "README.md", SearchOption.TopDirectoryOnly);
