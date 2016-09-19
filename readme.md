@@ -1,7 +1,5 @@
 # .NET Core front-end development guide
 
-[![Build status](https://ci.appveyor.com/api/projects/status/pxc55w86ova28q48/branch/master?svg=true)](https://ci.appveyor.com/project/antao/dotnetcore-front-end-guide/branch/master)
-
 ## Getting started
 
 Install .NET Core framework on your machine. You can access the [official website](https://www.microsoft.com/net/core) and download the lastest version. After installation head over to your recently cloned repo and run `dotnet restore`. This will install all the packages that the project requires for .net core.
