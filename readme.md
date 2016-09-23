@@ -1,5 +1,7 @@
 # .NET Core front-end development guide
 
+> Check our [blogpost](https://www.voorhoede.nl/en/blog/building-a-modular-front-end-in-dotnet-core/) on why we did this.
+
 ## Getting started
 
 Install .NET Core framework on your machine. You can access the [official website](https://www.microsoft.com/net/core) and download the lastest version. After installation head over to your recently cloned repo and run `dotnet restore`. This will install all the packages that the project requires for .net core.
